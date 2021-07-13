@@ -1,3 +1,4 @@
+# Projeto feito com ReactJS pela Gama Academy, para acessar o perfil do github do usuário e os seus repositórios
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
