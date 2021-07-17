@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styled'
 import { useHistory } from 'react-router-dom'
 
-
-export default function Repositories() {
+export default function Repositories(props) {
     const [repositories, setRepositories] = React.useState([])
     const history = useHistory()
     useEffect(() => {
@@ -22,11 +21,11 @@ export default function Repositories() {
 
     return (
         <S.Container>
-        <S.Title>Repositórios</S.Title>
+        <S.Title>Listagem de repositórios do usuário</S.Title>
         <S.List>
             {repositories.map((repos) => {
                 return (
-                    <S.ListItem>Nome do repositório: { repos }</S.ListItem>
+                    <S.ListItem>{ repos }</S.ListItem>
                 )
             })}
         </S.List>
