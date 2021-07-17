@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styled'
 
+
 export default function Repositories() {
     const [repositories, setRepositories] = React.useState([])
     useEffect(() => {
         let repositoriesName = localStorage.getItem('repositoriesName')
         repositoriesName = JSON.parse(repositoriesName) //transformando ele de novo em objeto
         setRepositories(repositoriesName)
-        localStorage.clear()
+        //localStorage.clear()
     }, [])//quando não passo nada para monitorar, ele vai fazer ao renderizar
 
     return (
@@ -20,6 +21,7 @@ export default function Repositories() {
                 )
             })}
         </S.List>
+        <S.LinkHome to="/">Voltar</S.LinkHome>
         </S.Container>
     )
 }

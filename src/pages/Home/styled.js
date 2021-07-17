@@ -5,8 +5,11 @@ export const Input = styled.input`
     height: 1.5rem;
     padding: 0 0.5rem;
     border-radius: .25rem 0 0.25rem;
-
-
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
 `;
 
 export const Button = styled.button`
@@ -15,7 +18,14 @@ export const Button = styled.button`
     background: #000;
     color: #fff;
     border-radius: 0 .25rem .25rem;
- 
+    &:focus,
+    &:active {
+        outline: none;
+        box-shadow: none;
+    }
+    &:hover {
+        background: #00b200;
+    }
 `;
 
 export const Container = styled.div`
