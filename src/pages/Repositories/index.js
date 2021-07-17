@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import * as S from './styled'
+import { useHistory } from 'react-router-dom'
 
 
 export default function Repositories() {
     const [repositories, setRepositories] = React.useState([])
+    const history = useHistory()
     useEffect(() => {
         let repositoriesName = localStorage.getItem('repositoriesName')
-        repositoriesName = JSON.parse(repositoriesName) //transformando ele de novo em objeto
-        setRepositories(repositoriesName)
-        //localStorage.clear()
+        //Atualizando a pagina, a pesquisa retornará null, logo, voltaremos a pagina inicial
+        //Validação dos dados passados pelo usuário, tratamento de erro
+        if (repositoriesName != null) {
+            repositoriesName = JSON.parse(repositoriesName) //transformando ele de novo em objeto
+            setRepositories(repositoriesName)
+            localStorage.clear()
+        } else {
+            history.push('/')
+        }
+        
     }, [])//quando não passo nada para monitorar, ele vai fazer ao renderizar
 
     return (
