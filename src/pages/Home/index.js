@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import * as S from './styled'
+import { useHistory } from 'react-router-dom'
 
 function App(props) {
 
   const [usuario, setUsuario] = React.useState('')
+  const history = useHistory()
 
   function handlePesquisa() {
+
     console.log(usuario)
     axios.get(`https://api.github.com/users/${usuario}/repos`).then((response) => {
       const repositories = response.data
       const repositoriesName = repositories.map(repo => repo.name)
       localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName))
-      console.log(repositoriesName)
+      history.push('/repositories')
+
     }).catch((error) => {
       console.log(error)
     })
