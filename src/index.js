@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-
 ReactDOM.render(
-    <App title="Hello" user="GAMA ACADEMY <3" />,
+    <App />,
     document.getElementById('root')
 );
 
