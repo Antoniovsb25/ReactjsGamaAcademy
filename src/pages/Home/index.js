@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import * as S from './styled'
 
-function Home() {
+function App(props) {
 
   const [usuario, setUsuario] = React.useState('')
 
   function handlePesquisa() {
     console.log(usuario)
     axios.get(`https://api.github.com/users/${usuario}/repos`).then((response) => {
-      console.log(response.data)
+      const repositories = response.data
+      const repositoriesName = repositories.map(repo => repo.name)
+      localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName))
+      console.log(repositoriesName)
     }).catch((error) => {
       console.log(error)
     })
@@ -22,4 +25,4 @@ function Home() {
     </S.Container>
   );
 }
-export default Home;
+export default App;
